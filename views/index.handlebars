@@ -1,26 +1,31 @@
-<h1>BURGERS!</h1>
+<div class="container">
+    <div class="text-center">
+        <img src="../public/assets/img/junk-food-hamburger-cheeseburger-mcdonalds-big-mac-bun-hamburger-button-slider-sandwich-png-clipart.jpg" alt="Burger">
+        <h1>EAT DA BURGER!</h1>
+    </div>
 
-<h2>EAT DA BURGER!</h2>
+    <ul>
+    {{#each burgers}}
+        {{#unless devoured}} 
+    <li>
+        {{burger_name}}
+        <button class="DEVOUR_IT" data-id="{{id}}" data-newdevoured="{{devoured}}">
+            {{#if devoured}}DONE!{{else}}DEVOUR IT!{{/if}}
+        </button>
+    </li>
+        {{/unless}}
+    {{/each}}
+    </ul>
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}} 
-<li>
-	{{burger_name}}
-	<button class="DEVOUR_IT" data-id="{{id}}" data-newdevoured="{{devoured}}">
-		{{#if devoured}}DONE!{{else}}DEVOUR IT!{{/if}}
-	</button>
-</li>
-    {{/unless}}
-  {{/each}}
-</ul>
+    <div class="text-center">
+        <form class="create-form">
+        <h2>Add a Burger!</h2>
 
-<form class="create-form">
-  <h2>Add a Burger!</h2>
+        <div class="form-group">
+            <input type="text" id="brg" name="name">
+        </div>
 
-  <div class="form-group">
-    <input type="text" id="brg" name="name">
-  </div>
-
-  <button type="submit">Add Burger</button>
-</form>
+        <button type="submit">Add Burger</button>
+        </form>
+    </div>
+</div>
